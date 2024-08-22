@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        *,::before,::after{ margin: 0; box-sizing: border-box;}
+        :disabled{ cursor: not-allowed; opacity: 0.5;}
+        button,select{ cursor: pointer; text-transform: capitalize;}
+
+        label{ display: inline-block;}
+      
+        html{ font-size: 15px; scroll-behavior: smooth; }
+        
+        body{  
+            font: 16px/1.2 system-ui, sans-serif;
+        }
+
+        .container{
+            max-width: 1200px;
+            margin: auto; 
+        }
+
+        hr{ margin: 10px 0;}
+        
+        header, nav, main, footer{ padding: 10px; }
+        .btn:active:enabled{ background: #333; color: #fff;}
+        header label{ float: right; vertical-align: middle;}
+        
+        .btn, select, input{ height: 36px; padding: 8px 12px; border: 1px solid #666; background: none; color: inherit; border-radius: 5px; vertical-align: middle;}
+        .btn.active{ background: #333; color: #fff;}
+
+
+        table{ border: 1px solid #666; border-collapse: collapse; margin: 1rem 0; }
+        table td, table th{ border: 1px solid #666; padding: 5px; width: 200px;}
+
+        .box{ margin: 1rem 0; padding: 1rem; background: #ccc; width: 400px; aspect-ratio: 2/1;}
+        .move{
+            animation: movement 1s infinite linear alternate;
+            
+        }
+        @keyframes movement {
+            0%{ margin-left: 0; background: #ccc;  }
+            50%{ margin-left: 100px; background: #ccf;  }
+            100%{ margin-left: 200px;  background: #ccc; }
+        }
+
+
+    
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <label><input type="checkbox" onchange="changeMode(this.checked)"> : Dark</label>
+            <h1>JavaScript <small>DOM</small></h1>
+        </header>
+        <nav>
+            <a href="">Link</a>
+            <a href="">Link</a>
+        </nav>
+        <main>
+            <h2>Main  </h2>
+            <p>Para 1</p>
+            <p>Para 2</p>
+            <p class="exp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error fugiat veritatis culpa, vitae aspernatur dolore quod illo cumque omnis, neque, sint dolores! Nulla fugit quidem obcaecati nam recusandae repellendus facere!</p>
+            <input type="text" name="" id=""> <button class="btn">Click</button>
+            <div class="box" onclick="moveRight()">Box</div>
+        </main>
+        <footer>
+            <p>&copy; 2024</p>
+        </footer>
+    </div>
+<script>
+    "use strict";
+//document.querySelector(".exp").style.color ="#00f"
+//document.querySelector(".exp").style.textAlign = 'center';
+//document.querySelector(".exp").style.textAlign = 'center';
+//document.querySelector(".exp").style = "color:#00f; text-align:center";
+//console.log( getComputedStyle(document.querySelector(".exp")).style.fontSize );
+
+
+//function moveRight(x){
+     //document.querySelector(".box").style.marginLeft= "200px"
+     //document.querySelector(".box").animate([{"marginLeft":"0"}, {"marginLeft":"200px"}], 1000);
+     //document.querySelector(".box").animate({"marginLeft":[0,"200px"]},1000);
+     //document.querySelector(".box").animate({"marginLeft":[0,"200px"], "backgroundColor":["#0008", "#00f"]},1000);
+//}
+
+
+document.querySelector(".box").animate(
+            {"marginLeft":[0,"200px"],"backgroundColor":["#ccc","#aaf"]},
+            {duration:1000,fill:"both", iterations:2, direction:"alternate"}).addEventListener("finish",
+            ()=>{document.querySelector(".box").innerHTML="done";
+        });
+
+
+        //  document.querySelector(".box").animate(
+        //     {"marginLeft":[0, "200px"], "backgroundColor":["#ccc", "#aaf"]},
+        //     {duration:1000, fill:"both", iteration:10, direction:"alternate"});
+
+
+</script>  
+</body>
+</html>
